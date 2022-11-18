@@ -17,6 +17,7 @@ const projectSchema = new Schema(
     },
     status: {
       type: String,
+      enum: ['Not started', 'In Progress', 'Completed'],
       required: true,
     },
   },
