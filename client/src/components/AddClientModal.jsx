@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_CLIENT } from '../mutations/clientMutations';
 import { GET_CLIENTS } from '../queries/clientQueries';
+import { FaUser } from 'react-icons/fa';
 
 const AddClientModal = () => {
   const [name, setName] = useState('');
@@ -34,25 +35,28 @@ const AddClientModal = () => {
     <>
       <button
         type='button'
-        className='btn btn-primary'
+        className='btn btn-secondary'
         data-toggle='modal'
-        data-target='#exampleModal'
+        data-target='#addClientModal'
       >
-        Launch demo modal
+        <div className='d-flex align-items-center '>
+          <FaUser className='icon' />
+          <div> Add Client</div>
+        </div>
       </button>
 
       <div
         className='modal fade'
-        id='exampleModal'
+        id='addClientModal'
         tabIndex='-1'
         role='dialog'
-        aria-labelledby='exampleModalLabel'
+        aria-labelledby='addClientModalLabel'
         aria-hidden='true'
       >
         <div className='modal-dialog' role='document'>
           <div className='modal-content'>
             <div className='modal-header'>
-              <h5 className='modal-title' id='exampleModalLabel'>
+              <h5 className='modal-title' id='addClientModalLabel'>
                 Create client{' '}
               </h5>
               <button type='button' className='close' data-dismiss='modal' aria-label='Close'>
@@ -61,37 +65,37 @@ const AddClientModal = () => {
             </div>
             <div className='modal-body'>
               <form onSubmit={handleForm}>
-                Name
-                <input
-                  name='name'
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  type='text'
-                />
-                Email
-                <input
-                  name='email'
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  type='text'
-                />
-                Phone
-                <input
-                  name='phone'
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  type='text'
-                />
-                <button type='submit'>Create</button>
+                <div className='mb-3'>
+                  <label className='form-label'>Name</label>
+                  <input
+                    className='form-control'
+                    name='name'
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    type='text'
+                  />
+                  <label className='form-label'>Email</label>
+
+                  <input
+                    className='form-control'
+                    name='email'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    type='text'
+                  />
+                  <label className='form-label'>Phone</label>
+                  <input
+                    className='form-control'
+                    name='phone'
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    type='text'
+                  />
+                  <button className='btn btn-sm btn-primary mt-2' type='submit'>
+                    Create
+                  </button>
+                </div>
               </form>
-            </div>
-            <div className='modal-footer'>
-              <button type='button' className='btn btn-secondary' data-dismiss='modal'>
-                Close
-              </button>
-              <button type='button' className='btn btn-primary'>
-                Save changes
-              </button>
             </div>
           </div>
         </div>
