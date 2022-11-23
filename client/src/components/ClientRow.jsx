@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaTrash } from 'react-icons/fa';
+import { FaTrash, FaEdit } from 'react-icons/fa';
 import { useMutation } from '@apollo/client';
 import { DELETE_CLIENT } from '../mutations/clientMutations';
 import { GET_CLIENTS } from '../queries/clientQueries';
@@ -24,8 +24,11 @@ const ClientRow = ({ client }) => {
       <td>{client.email}</td>
       <td>{client.phone}</td>
       <td>
-        <button onClick={deleteClient} className='btn btn-danger btn-sm'>
+        <button onClick={deleteClient} className='btn btn-danger '>
           <FaTrash />
+        </button>
+        <button onClick={deleteClient} className='btn btn-primary ml-3'>
+          <FaEdit />
         </button>
       </td>
     </tr>

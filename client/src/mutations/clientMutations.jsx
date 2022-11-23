@@ -19,3 +19,9 @@ export const ADD_CLIENT = gql`
     }
   }
 `;
+
+export const EDIT_CLIENT = gql`
+  mutation updateClient($id: ID!, $name: String!, $email: String!, $phone: String!) {
+    addClient(id: $id, email: $email, phone: $phone, name: $name)
+  }
+`;

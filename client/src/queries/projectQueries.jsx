@@ -8,6 +8,23 @@ export const GET_PROJECTS = gql`
         name
         id
         email
+        phone
+      }
+    }
+  }
+`;
+
+export const GET_PROJECT = gql`
+  query getProject($id: ID!) {
+    getProject(id: $id) {
+      name
+      description
+      id
+      client {
+        name
+        id
+        email
+        phone
       }
     }
   }
